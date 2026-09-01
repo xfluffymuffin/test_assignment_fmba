@@ -25,3 +25,8 @@ RUN curl -OL https://github.com/ebiggers/libdeflate/releases/download/v1.26/libd
     && cmake --build build -j$(nproc) \
     && cmake --install build \
     && rm -rf ./libdeflate* ./build
+
+ENV PATH=$SOFT/libdeflate-1.26/bin:$PATH \ 
+    LD_LIBRARY_PATH=$SOFT/libdeflate-1.26/lib \
+    LIBDEFLATEGZIP=$SOFT/libdeflate-1.26/bin/libdeflate-gzip \
+    LIBDEFLATEGUNZIP=$SOFT/libdeflate-1.26/bin/libdeflate-gunzip
