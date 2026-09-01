@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     ca-certificates \
     cmake \
+    automake \
+    perl \
     && rm -rf /var/lib/apt/lists/*
 
     # libdeflate v1.26, 2026-08-22
@@ -30,3 +32,19 @@ ENV PATH=$SOFT/libdeflate-1.26/bin:$PATH \
     LD_LIBRARY_PATH=$SOFT/libdeflate-1.26/lib \
     LIBDEFLATEGZIP=$SOFT/libdeflate-1.26/bin/libdeflate-gzip \
     LIBDEFLATEGUNZIP=$SOFT/libdeflate-1.26/bin/libdeflate-gunzip
+
+    # htslib 1.24, 2026-07-09
+RUN curl -OL https://github.com/samtools/htslib/releases/download/1.24/htslib-1.24.tar.bz2 \
+    && tar -xjf htslib-1.24.tar.bz2 \
+    && cd htslib-1.24/ \
+    && ./configure CPPFLAGS="-I$SOFT/libdeflate-1.26/include" LDFLAGS="-L$SOFT/libdeflate-1.26/lib" --prefix=$SOFT/htslib-1.24  \
+    && make -j$(nproc) && make install \
+    && cd .. && rm -rf ./hts*
+
+ENV PATH=$SOFT/htslib-1.24/bin:$PATH \
+    LD_LIBRARY_PATH=$SOFT/htslib-1.24/lib:$LD_LIBRARY_PATH \
+    ANNOTTSV=$SOFT/htslib-1.24/bin/annot-tsv \
+    BGZIP=$SOFT/htslib-1.24/bin/bgzip \
+    HTSFILE=$SOFT/htslib-1.24/bin/htsfile \
+    REFCACHE=$SOFT/htslib-1.24/bin/ref-cache \
+    TABIX=$SOFT/htslib-1.24/bin/tabix
