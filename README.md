@@ -1,4 +1,4 @@
-# test_assignment_fmba
+# test_assignment_fmba (EN)
 
 This repository contains a Dockerfile with a set of bioinformatics tools for genomic analysis. Base image: Ubuntu 22.04
 
@@ -33,6 +33,8 @@ docker build -t test_assignment_fmba:test .
 docker run -it test_assignment_fmba:test bash
 
 ---
+
+# test_assignment_fmba (RU)
 
 Содержит Dockerfile с набором биоинформатических инструментов для геномного анализа. Базовый образ: Ubuntu 22.04
 
