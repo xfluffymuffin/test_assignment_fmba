@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     cmake \
     automake \
     perl \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
     # libdeflate v1.26, 2026-08-22
@@ -54,7 +55,7 @@ ENV PATH=$SOFT/htslib-1.24/bin:$PATH \
 RUN curl -OL https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2 \
     && tar -xjf samtools-1.24.tar.bz2 \
     && cd samtools-1.24/ \
-    && ./configure --with-htslib=$SOFT/htslib-1.24/  --prefix=$SOFT/samtools-1.24  \
+    && ./configure --with-htslib=$SOFT/htslib-1.24/ --prefix=$SOFT/samtools-1.24  \
     && make -j$(nproc) && make install \
     && cd .. && rm -rf ./sam*
 
@@ -65,10 +66,22 @@ ENV PATH=$SOFT/samtools-1.24/bin:$PATH \
 RUN curl -OL https://github.com/samtools/bcftools/releases/download/1.24/bcftools-1.24.tar.bz2 \
     && tar -xjf bcftools-1.24.tar.bz2 \
     && cd bcftools-1.24/ \
-    && ./configure --with-htslib=$SOFT/htslib-1.24/  --prefix=$SOFT/bcftools-1.24  \
+    && ./configure --with-htslib=$SOFT/htslib-1.24/ --prefix=$SOFT/bcftools-1.24  \
     && make -j$(nproc) && make install \
     && cd .. && rm -rf ./bcf*
 
 ENV PATH=$SOFT/bcftools-1.24/bin:$PATH \
     BCFTOOLS=$SOFT/bcftools-1.24/bin/bcftools \
     BCFTOOLS_PLUGINS=$SOFT/bcftools-1.24/libexec/bcftools/
+
+    # vcftools v0.1.17, 2025-05-15
+RUN curl -OL https://github.com/vcftools/vcftools/releases/download/v0.1.17/vcftools-0.1.17.tar.gz \
+    && tar -xzf vcftools-0.1.17.tar.gz \
+    && cd vcftools-0.1.17/ \
+    && ./configure --prefix=$SOFT/vcftools-0.1.17 \
+    && make -j$(nproc) && make install \
+    && cd .. && rm -rf ./vcf*
+
+ENV PATH=$SOFT/vcftools-0.1.17/bin:$PATH \
+    VCFTOOLS=$SOFT/vcftools-0.1.17/bin/vcftools \
+    PERL5LIB=$SOFT/vcftools-0.1.17/share/perl/5.34.0
