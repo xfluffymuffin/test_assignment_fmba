@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     liblzma-dev \
     libcurl4-openssl-dev \
     libssl-dev \
+    libncurses5-dev \
     curl \
     ca-certificates \
     cmake \
@@ -48,3 +49,14 @@ ENV PATH=$SOFT/htslib-1.24/bin:$PATH \
     HTSFILE=$SOFT/htslib-1.24/bin/htsfile \
     REFCACHE=$SOFT/htslib-1.24/bin/ref-cache \
     TABIX=$SOFT/htslib-1.24/bin/tabix
+
+    # samtools 1.24, 2026-07-09
+RUN curl -OL https://github.com/samtools/samtools/releases/download/1.24/samtools-1.24.tar.bz2 \
+    && tar -xjf samtools-1.24.tar.bz2 \
+    && cd samtools-1.24/ \
+    && ./configure --with-htslib=$SOFT/htslib-1.24/  --prefix=$SOFT/samtools-1.24  \
+    && make -j$(nproc) && make install \
+    && cd .. && rm -rf ./sam*
+
+ENV PATH=$SOFT/samtools-1.24/bin:$PATH \
+    SAMTOOLS=$SOFT/samtools-1.24/bin/samtools
