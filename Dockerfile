@@ -60,3 +60,15 @@ RUN curl -OL https://github.com/samtools/samtools/releases/download/1.24/samtool
 
 ENV PATH=$SOFT/samtools-1.24/bin:$PATH \
     SAMTOOLS=$SOFT/samtools-1.24/bin/samtools
+
+    # bcftools 1.24, 2026-07-09
+RUN curl -OL https://github.com/samtools/bcftools/releases/download/1.24/bcftools-1.24.tar.bz2 \
+    && tar -xjf bcftools-1.24.tar.bz2 \
+    && cd bcftools-1.24/ \
+    && ./configure --with-htslib=$SOFT/htslib-1.24/  --prefix=$SOFT/bcftools-1.24  \
+    && make -j$(nproc) && make install \
+    && cd .. && rm -rf ./bcf*
+
+ENV PATH=$SOFT/bcftools-1.24/bin:$PATH \
+    BCFTOOLS=$SOFT/bcftools-1.24/bin/bcftools \
+    BCFTOOLS_PLUGINS=$SOFT/bcftools-1.24/libexec/bcftools/
