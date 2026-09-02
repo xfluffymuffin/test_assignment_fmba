@@ -18,6 +18,7 @@ Explanation of each component:
 - `$2!=23` - excludes any line whose second column equals 23 (the X chromosome);
 - `{print "chr"$2, $4, "rs"$1, $5, $6}` - reorders the columns from the source file into the new sequence (2, 4, 1, 5, 6) and adds the required prefixes;
 - `FP_SNPs.txt > FP_SNPs_10k_GB38_twoAllelsFormat.tsv` - directs the command's output into a new file under the specified name.
+
 For comparison:
  
 a)
