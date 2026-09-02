@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 LABEL org.opencontainers.image.authors="frantsuzov_v_p@student.sechenov.ru" \
-      org.opencontainers.image.version="1.0" \
-      org.opencontainers.image.description="Task_2"
+      org.opencontainers.image.version="1.1" \
+      org.opencontainers.image.description="Task_3"
 
 ENV SOFT=/soft
 
@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     automake \
     perl \
     pkg-config \
+    python3-pip \
+    && pip install --no-cache-dir pysam \
     && rm -rf /var/lib/apt/lists/*
 
     # libdeflate v1.26, 2026-08-22
@@ -85,3 +87,6 @@ RUN curl -OL https://github.com/vcftools/vcftools/releases/download/v0.1.17/vcft
 ENV PATH=$SOFT/vcftools-0.1.17/bin:$PATH \
     VCFTOOLS=$SOFT/vcftools-0.1.17/bin/vcftools \
     PERL5LIB=$SOFT/vcftools-0.1.17/share/perl/5.34.0
+
+COPY restore_ref_al.py /usr/local/bin/restore_ref_al.py
+RUN chmod +x /usr/local/bin/restore_ref_al.py
