@@ -1,0 +1,26 @@
+2026-09-02 00:47:02,289 - root - WARNING - Line 420: rs2274617 (chr1:145899155): alleles T/C do not uniquely match reference base G — skipped
+2026-09-02 00:47:02,346 - root - WARNING - Line 5967: rs4342964 (chr10:47420743): alleles T/C do not uniquely match reference base G — skipped
+2026-09-02 00:47:02,346 - root - WARNING - Line 5968: rs11204215 (chr10:47320207): alleles C/A do not uniquely match reference base T — skipped
+2026-09-02 00:47:02,346 - root - WARNING - Line 5969: rs12414155 (chr10:47268342): alleles T/C do not uniquely match reference base A — skipped
+2026-09-02 00:47:02,346 - root - WARNING - Line 5970: rs2790937 (chr10:47099482): alleles G/A do not uniquely match reference base T — skipped
+2026-09-02 00:47:02,346 - root - WARNING - Line 5977: rs10994675 (chr10:46031829): alleles A/G do not uniquely match reference base C — skipped
+2026-09-02 00:47:02,352 - root - WARNING - Line 6508: rs527464 (chr11:54678670): alleles C/T do not uniquely match reference base G — skipped
+2026-09-02 00:47:02,369 - root - WARNING - Line 8062: rs7174982 (chr15:22907410): alleles T/C do not uniquely match reference base G — skipped
+2026-09-02 00:47:02,370 - root - WARNING - Line 8063: rs4778334 (chr15:22832212): alleles T/C do not uniquely match reference base A — skipped
+2026-09-02 00:47:02,391 - root - INFO - Total variants processed: 10000
+2026-09-02 00:47:02,391 - root - INFO - Matched (REF/ALT assigned): 9991
+2026-09-02 00:47:02,392 - root - INFO - Unmatched (ambiguous alleles): 9
+2026-09-02 00:47:02,392 - root - INFO - Malformed lines (skipped): 0
+2026-09-02 00:55:50,613 - root - WARNING - Line 420: rs2274617 (chr1:145899155): alleles T/C do not uniquely match reference base G — skipped
+2026-09-02 00:55:51,679 - root - WARNING - Line 5967: rs4342964 (chr10:47420743): alleles T/C do not uniquely match reference base G — skipped
+2026-09-02 00:55:51,679 - root - WARNING - Line 5968: rs11204215 (chr10:47320207): alleles C/A do not uniquely match reference base T — skipped
+2026-09-02 00:55:51,679 - root - WARNING - Line 5969: rs12414155 (chr10:47268342): alleles T/C do not uniquely match reference base A — skipped
+2026-09-02 00:55:51,679 - root - WARNING - Line 5970: rs2790937 (chr10:47099482): alleles G/A do not uniquely match reference base T — skipped
+2026-09-02 00:55:51,681 - root - WARNING - Line 5977: rs10994675 (chr10:46031829): alleles A/G do not uniquely match reference base C — skipped
+2026-09-02 00:55:51,783 - root - WARNING - Line 6508: rs527464 (chr11:54678670): alleles C/T do not uniquely match reference base G — skipped
+2026-09-02 00:55:52,108 - root - WARNING - Line 8062: rs7174982 (chr15:22907410): alleles T/C do not uniquely match reference base G — skipped
+2026-09-02 00:55:52,108 - root - WARNING - Line 8063: rs4778334 (chr15:22832212): alleles T/C do not uniquely match reference base A — skipped
+2026-09-02 00:55:52,555 - root - INFO - Total variants processed: 10000
+2026-09-02 00:55:52,555 - root - INFO - Matched (REF/ALT assigned): 9991
+2026-09-02 00:55:52,555 - root - INFO - Unmatched (ambiguous alleles): 9
+2026-09-02 00:55:52,555 - root - INFO - Malformed lines (skipped): 0
